@@ -1,4 +1,6 @@
-const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb';
+import { getRandomString } from './getRandomString.js';
+
 
 const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
@@ -6,19 +8,7 @@ const client = new MongoClient(url);
 const dbName = 'nest';
 const collectionName = 'docs'
 
-const COUNT = 10000000
-
-function getRandomString() {
-	const length = Math.floor(Math.random() * 100)
-	const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-	let result = "";
-	const randomArray = new Uint8Array(length);
-	crypto.getRandomValues(randomArray);
-	randomArray.forEach((number) => {
-	  result += chars[number % chars.length];
-	});
-	return result;
-}
+const COUNT = 100
 
 
 async function main() {

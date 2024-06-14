@@ -5,7 +5,7 @@ export type DocDocument = HydratedDocument<Doc>;
 
 @Schema()
 export class Doc {
-  @Prop()
+  @Prop({ index: true })
   name: string;
 }
 

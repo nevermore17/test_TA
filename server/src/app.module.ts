@@ -10,7 +10,9 @@ import { DocModule } from './doc/doc.module';
       envFilePath: '.env',
       isGlobal: true,
     }),
-    MongooseModule.forRoot(process.env.DATABASE_URL),
+    MongooseModule.forRoot(process.env.DATABASE_URL, {
+      autoIndex: true
+    }),
     DocModule
   ],
   controllers: [],
